@@ -4,11 +4,8 @@ var i = 10;
 
 app.get('/', function (req, res) {
   console.log('request #',i);
-  client.get('foo',function(err, data){
     res.json({'status':'online', 'request':i});
-  });
   i++;
-  client.set('foo',i);
 });
 
 console.log('Hello world: Demo test');
@@ -20,9 +17,3 @@ var server = app.listen(3000, function () {
 
   console.log('Example app listening');
 });
-
-var host = process.env.REDIS_HOST;
-var port = process.env.REDIS_PORT;
-
-
-console.log('connect to client: ', host, ":", port );
